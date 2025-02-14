@@ -24,10 +24,12 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "assets/webfonts"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/all.min.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
