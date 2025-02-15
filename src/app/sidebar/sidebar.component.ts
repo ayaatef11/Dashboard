@@ -18,6 +18,6 @@ export class SidebarComponent {
     { path: '/courses', icon: 'fa-graduation-cap', label: 'Courses' },
     { path: '/friends', icon: 'fa-circle-user', label: 'Friends' },
     { path: '/files', icon: 'fa-file', label: 'Files' },
-    { path: '/plans', icon: 'fa-credit-card', label: 'Plans' }
+    { path: '/plans', icon: 'fa-credit-card', label: 'Plans' },
   ];
 }
