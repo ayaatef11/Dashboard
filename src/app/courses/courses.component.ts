@@ -1,10 +1,11 @@
 import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
+import { SidebarComponent } from "../sidebar/sidebar.component";
 
 @Component({
   selector: 'app-courses',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, SidebarComponent],
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.css'
 })

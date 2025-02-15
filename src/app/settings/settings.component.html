@@ -1,21 +1,6 @@
 <div class="page d-flex">
-  <div class="sidebar bg-white p-20 p-relative">
-    <h3 class="p-relative txt-c mt-0">Elzero</h3>
-    
-    <ul>
-      <li *ngFor="let item of menuItems">
-        <a
-          class="d-flex align-center fs-14 c-black rad-6 p-10"
-          [routerLink]="item.link"
-          [ngClass]="{ 'active': item.link === activeLink }"
-        >
-          <i class="{{ item.icon }} fa-fw"></i>
-          <span>{{ item.name }}</span>
-        </a>
-      </li>
-    </ul>
 
-  </div>
+  
   <div class="content w-full">
     <!-- Start Head -->
     <div class="head bg-white p-15 between-flex">
