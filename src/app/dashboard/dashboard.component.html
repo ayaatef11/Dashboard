@@ -122,97 +122,32 @@
         <div>Keyword</div>
         <div>Search Count</div>
       </div>
-      <div class="items d-flex space-between pt-15 pb-15">
-        <span>Programming</span>
-        <span class="bg-eee fs-13 btn-shape">220</span>
+
+      <div *ngFor="let keyword of keywords" class="items d-flex space-between pt-15 pb-15">
+        <span>{{ keyword.name }}</span>
+        <span class="bg-eee fs-13 btn-shape">{{ keyword.count }}</span>
       </div>
-      <div class="items d-flex space-between pt-15 pb-15">
-        <span>JavaScript</span>
-        <span class="bg-eee btn-shape fs-13">180</span>
-      </div>
-      <div class="items d-flex space-between pt-15 pb-15">
-        <span>PHP</span>
-        <span class="bg-eee btn-shape fs-13">160</span>
-      </div>
-      <div class="items d-flex space-between pt-15 pb-15">
-        <span>Code</span>
-        <span class="bg-eee btn-shape fs-13">145</span>
-      </div>
-      <div class="items d-flex space-between pt-15 pb-15">
-        <span>Design</span>
-        <span class="bg-eee btn-shape fs-13">110</span>
-      </div>
-      <div class="items d-flex space-between pt-15 pb-15">
-        <span>Logic</span>
-        <span class="bg-eee btn-shape fs-13">95</span>
-      </div>
+
+
     </div>
     <!-- End Top Search Word Widget -->
     <!-- Start Latest Uploads Widget -->
     <div class="latest-uploads p-20 bg-white rad-10">
       <h2 class="mt-0 mb-20">Latest Uploads</h2>
-      <ul class="m-0">
-        <li class="between-flex pb-10 mb-10">
-          <div class="d-flex align-center">
-            <img class="mr-10" src="imgs/pdf.svg" alt="" />
-            <div>
-              <span class="d-block">my-file.pdf</span>
-              <span class="fs-15 c-grey">Client</span>
+
+        <ul class="m-0">
+          <li *ngFor="let file of files" class="between-flex pb-10 mb-10">
+            <div class="d-flex align-center">
+              <img class="mr-10" [src]="file.icon" alt="" />
+              <div>
+                <span class="d-block">{{ file.name }}</span>
+                <span class="fs-15 c-grey">{{ file.type }}</span>
+              </div>
             </div>
-          </div>
-          <div class="bg-eee btn-shape fs-13">2.9mb</div>
-        </li>
-        <li class="between-flex pb-10 mb-10">
-          <div class="d-flex align-center">
-            <img class="mr-10" src="imgs/avi.svg" alt="" />
-            <div>
-              <span class="d-block">My-Video-File.avi</span>
-              <span class="fs-15 c-grey">Admin</span>
-            </div>
-          </div>
-          <div class="bg-eee btn-shape fs-13">4.9mb</div>
-        </li>
-        <li class="between-flex pb-10 mb-10">
-          <div class="d-flex align-center">
-            <img class="mr-10" src="imgs/psd.svg" alt="" />
-            <div>
-              <span class="d-block">My-Psd-File.pdf</span>
-              <span class="fs-15 c-grey">Client</span>
-            </div>
-          </div>
-          <div class="bg-eee btn-shape fs-13">4.5mb</div>
-        </li>
-        <li class="between-flex pb-10 mb-10">
-          <div class="d-flex align-center">
-            <img class="mr-10" src="imgs/zip.svg" alt="" />
-            <div>
-              <span class="d-block">My-Zip-File.pdf</span>
-              <span class="fs-15 c-grey">User</span>
-            </div>
-          </div>
-          <div class="bg-eee btn-shape fs-13">8.9mb</div>
-        </li>
-        <li class="between-flex pb-10 mb-10">
-          <div class="d-flex align-center">
-            <img class="mr-10" src="imgs/dll.svg" alt="" />
-            <div>
-              <span class="d-block">My-DLL-File.pdf</span>
-              <span class="fs-15 c-grey">Admin</span>
-            </div>
-          </div>
-          <div class="bg-eee btn-shape fs-13">4.9mb</div>
-        </li>
-        <li class="between-flex">
-          <div class="d-flex align-center">
-            <img class="mr-10" src="imgs/eps.svg" alt="" />
-            <div>
-              <span class="d-block">My-Eps-File.pdf</span>
-              <span class="fs-15 c-grey">Designer</span>
-            </div>
-          </div>
-          <div class="bg-eee btn-shape fs-13">8.9mb</div>
-        </li>
-      </ul>
+            <div class="bg-eee btn-shape fs-13">{{ file.size }}</div>
+          </li>
+        </ul>
+
     </div>
     <!-- End Latest Uploads Widget -->
     <!-- Start Last Project Progress Widget -->
@@ -225,49 +160,22 @@
         <li class="mt-25 d-flex align-center current">Test The Project</li>
         <li class="mt-25 d-flex align-center">Finish The Project & Get Money</li>
       </ul>
-      <img class="launch-icon hide-mobile" src="imgs/project.png" alt="" />
+      <img class="launch-icon hide-mobile" src="/imgs/project.png" alt="" />
     </div>
     <!-- End Last Project Progress Widget -->
+
     <!-- Start Reminders Widget -->
     <div class="reminders p-20 bg-white rad-10 p-relative">
       <h2 class="mt-0 mb-25">Reminders</h2>
-      <ul class="m-0">
-        <li class="d-flex align-center mt-15">
-          <span class="key bg-blue mr-15 d-block rad-half"></span>
-          <div class="pl-15 blue">
-            <p class="fs-14 fw-bold mt-0 mb-5">Check My Tasks List</p>
-            <span class="fs-13 c-grey">28/09/2022 - 12:00am</span>
-          </div>
-        </li>
-        <li class="d-flex align-center mt-15">
-          <span class="key bg-green mr-15 d-block rad-half"></span>
-          <div class="pl-15 green">
-            <p class="fs-14 fw-bold mt-0 mb-5">Check My Projects</p>
-            <span class="fs-13 c-grey">26/10/2022 - 12:00am</span>
-          </div>
-        </li>
-        <li class="d-flex align-center mt-15">
-          <span class="key bg-orange mr-15 d-block rad-half"></span>
-          <div class="pl-15 orange">
-            <p class="fs-14 fw-bold mt-0 mb-5">Call All My Clients</p>
-            <span class="fs-13 c-grey">05/11/2022 - 12:00am</span>
-          </div>
-        </li>
-        <li class="d-flex align-center mt-15">
-          <span class="key bg-red mr-15 d-block rad-half"></span>
-          <div class="pl-15 red">
-            <p class="fs-14 fw-bold mt-0 mb-5">Finish The Development Workshop</p>
-            <span class="fs-13 c-grey">20/12/2022 - 12:00am</span>
-          </div>
-        </li>
-      </ul>
+
+
     </div>
     <!-- End Reminders Widget -->
     <!-- Start Latest Post Widget -->
     <div class="latest-post p-20 bg-white rad-10 p-relative">
       <h2 class="mt-0 mb-25">Latest Post</h2>
       <div class="top d-flex align-center">
-        <img class="avatar mr-15" src="imgs/avatar.png" alt="" />
+        <img class="avatar mr-15" src="/imgs/avatar.png" alt="" />
         <div class="info">
           <span class="d-block mb-5 fw-bold">client Client</span>
           <span class="c-grey">About 3 Hours Ago</span>
@@ -292,27 +200,13 @@
     <!-- Start Social Media Stats Widget -->
     <div class="social-media p-20 bg-white rad-10 p-relative">
       <h2 class="mt-0 mb-25">Social Media Stats</h2>
-      <div class="box twitter p-15 p-relative mb-10 between-flex">
-        <i class="fa-brands fa-twitter fa-2x c-white h-full center-flex"></i>
-        <span>90K Followers</span>
-        <a class="fs-13 c-white btn-shape" href="#">Follow</a>
+
+      <div *ngFor="let platform of socialPlatforms" class="box p-15 p-relative mb-10 between-flex" [ngClass]="platform.class">
+        <i class="fa-brands fa-2x c-white h-full center-flex" [ngClass]="platform.icon"></i>
+        <span>{{ platform.followers }}</span>
+        <a class="fs-13 c-white btn-shape" href="#">{{ platform.action }}</a>
       </div>
-      <div class="box facebook p-15 p-relative mb-10 between-flex">
-        <i class="fa-brands fa-facebook-f fa-2x c-white h-full center-flex"></i>
-        <span>2M Like</span>
-        <a class="fs-13 c-white btn-shape" href="#">Like</a>
-      </div>
-      <div class="box youtube p-15 p-relative mb-10 between-flex">
-        <i class="fa-brands fa-youtube fa-2x c-white h-full center-flex"></i>
-        <span>1M Subs</span>
-        <a class="fs-13 c-white btn-shape" href="#">Subscribe</a>
-      </div>
-      <div class="box linkedin p-15 p-relative mb-10 between-flex">
-        <i class="fa-brands fa-linkedin fa-2x c-white h-full center-flex"></i>
-        <span>70K Followers</span>
-        <a class="fs-13 c-white btn-shape" href="#">Follow</a>
-      </div>
-    </div>
+
     <!-- Start End Media Stats Widget -->
   </div>
   <!-- Start Projects Table -->
@@ -320,6 +214,7 @@
     <h2 class="mt-0 mb-20">Projects</h2>
     <div class="responsive-table">
       <table class="fs-15 w-full">
+        <!-- .........................................important ........ -->
         <thead>
           <tr>
             <td>Name</td>
@@ -330,82 +225,25 @@
             <td>Status</td>
           </tr>
         </thead>
+
         <tbody>
-          <tr>
-            <td>Ministry Wikipedia</td>
-            <td>10 May 2022</td>
-            <td>Ministry</td>
-            <td>$5300</td>
+          <tr *ngFor="let project of projects">
+            <td>{{ project.name }}</td>
+            <td>{{ project.finishDate }}</td>
+            <td>{{ project.client }}</td>
+            <td>{{ project.price }}</td>
             <td>
-              <img src="/imgs/team-01.png" alt="" />
-              <img src="/imgs/team-02.png" alt="" />
-              <img src="/imgs/team-03.png" alt="" />
-              <img src="/imgs/team-05.png" alt="" />
+              <img *ngFor="let member of project.team" [src]="member" alt="Team Member" />
             </td>
             <td>
-              <span class="label btn-shape bg-orange c-white">Pending</span>
+              <span class="label btn-shape c-white" [ngClass]="project.status.class">
+                {{ project.status.text }}
+              </span>
             </td>
-          </tr>
-          <tr>
-            <td>Elzero Shop</td>
-            <td>12 Oct 2021</td>
-            <td>Elzero Company</td>
-            <td>$1500</td>
-            <td>
-              <img src="/imgs/team-01.png" alt="" />
-              <img src="/imgs/team-02.png" alt="" />
-              <img src="/imgs/team-05.png" alt="" />
-            </td>
-            <td><span class="label btn-shape bg-blue c-white">In Progress</span></td>
-          </tr>
-          <tr>
-            <td>Bouba App</td>
-            <td>05 Sep 2021</td>
-            <td>Bouba</td>
-            <td>$800</td>
-            <td>
-              <img src="/imgs/team-02.png" alt="" />
-              <img src="/imgs/team-03.png" alt="" />
-            </td>/
-            <td><span class="label btn-shape bg-green c-white">Completed</span></td>
-          </tr>
-          <tr>
-            <td>Mahmoud Website</td>
-            <td>22 May 2021</td>
-            <td>Mahmoud</td>
-            <td>$600</td>
-            <td>
-              <img src="/imgs/team-01.png" alt="" />
-              <img src="/imgs/team-02.png" alt="" />
-            </td>
-            <td><span class="label btn-shape bg-green c-white">Completed</span></td>
-          </tr>
-          <tr>
-            <td>Sayed Website</td>
-            <td>24 May 2021</td>
-            <td>Sayed</td>
-            <td>$300</td>
-            <td>
-              <img src="/imgs/team-01.png" alt="" />
-              <img src="/imgs/team-03.png" alt="" />
-            </td>
-            <td><span class="label btn-shape bg-red c-white">Rejected</span></td>
-          </tr>
-          <tr>
-            <td>Arena Application</td>
-            <td>01 Mar 2021</td>
-            <td>Arena Company</td>
-            <td>$2600</td>
-            <td>
-              <img src="/imgs/team-01.png" alt="" />
-              <img src="/imgs/team-02.png" alt="" />
-              <img src="/imgs/team-03.png" alt="" />
-              <img src="/imgs/team-04.png" alt="" />
-            </td>
-            <td><span class="label btn-shape bg-green c-white">Completed</span></td>
           </tr>
         </tbody>
       </table>
+
     </div>
   </div>
   <!-- End Projects Table -->
