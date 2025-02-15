@@ -9,6 +9,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const routes: Routes = [
   { path: 'courses', component: CoursesComponent },
@@ -17,7 +18,9 @@ export const routes: Routes = [
   { path: 'plans', component: PlansComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'projects', component: ProjectsComponent },
-  { path: 'settings', component: SettingsComponent }
+  { path: 'settings', component: SettingsComponent },
+  { path: 'dashboard', component: DashboardComponent }
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

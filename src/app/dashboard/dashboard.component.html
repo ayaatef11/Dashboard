@@ -7,6 +7,7 @@
     <div class="search p-relative">
       <input class="p-10" type="search" placeholder="Type A Keyword" />
     </div>
+
     <div class="icons d-flex align-center">
       <span class="notification p-relative">
         <i class="fa-regular fa-bell fa-lg"></i>
@@ -15,6 +16,7 @@
     </div>
   </div>
   <!-- End Head -->
+
   <h1 class="p-relative">Dashboard</h1>
   <div class="wrapper d-grid gap-20">
     <!-- Start Welcome Widget -->
@@ -50,48 +52,22 @@
     <div class="targets p-20 bg-white rad-10">
       <h2 class="mt-0 mb-10">Yearly Targets</h2>
       <p class="mt-0 mb-20 c-grey fs-15">Targets Of The Year</p>
-      <div class="target-row mb-20 blue center-flex">
+      <div *ngFor="let target of targets" class="target-row mb-20 center-flex" [class]="target.color">
         <div class="icon center-flex">
-          <i class="fa-solid fa-dollar-sign fa-lg c-blue"></i>
+          <i class="fa-solid fa-lg" [ngClass]="'fa-' + target.icon" [class]="'c-' + target.color"></i>
         </div>
         <div class="details">
-          <span class="fs-14 c-grey">Money</span>
-          <span class="d-block mt-5 mb-10 fw-bold">$20.000</span>
+          <span class="fs-14 c-grey">{{ target.type }}</span>
+          <span class="d-block mt-5 mb-10 fw-bold">{{ target.amount }}</span>
           <div class="progress p-relative">
-            <span class="bg-blue blue" style="width: 80%">
-              <span class="bg-blue">80%</span>
+            <span class="bg-" [class]="'bg-' + target.color" [style.width.%]="target.progress">
+              <span [class]="'bg-' + target.color">{{ target.progress }}%</span>
             </span>
           </div>
         </div>
       </div>
-      <div class="target-row mb-20 center-flex orange">
-        <div class="icon center-flex">
-          <i class="fa-solid fa-code fa-lg c-orange"></i>
-        </div>
-        <div class="details">
-          <span class="fs-14 c-grey">Projects</span>
-          <span class="d-block mt-5 mb-10 fw-bold">24</span>
-          <div class="progress p-relative">
-            <span class="bg-orange orange" style="width: 55%">
-              <span class="bg-orange">55%</span>
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="target-row mb-20 center-flex green">
-        <div class="icon center-flex">
-          <i class="fa-solid fa-user fa-lg c-green"></i>
-        </div>
-        <div class="details">
-          <span class="fs-14 c-grey">Team</span>
-          <span class="d-block mt-5 mb-10 fw-bold">12</span>
-          <div class="progress p-relative">
-            <span class="bg-green green" style="width: 75%">
-              <span class="bg-green">75%</span>
-            </span>
-          </div>
-        </div>
-      </div>
+
+
     </div>
     <!-- End Targets Widget -->
     <!-- Start Ticket Widget -->
