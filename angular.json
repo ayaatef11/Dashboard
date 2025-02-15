@@ -27,12 +27,12 @@
               }
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css",
               "src/assets/css/all.min.css",
               "src/assets/css/framework.css",
-              "src/assets/css/master.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
-            ],
+              "src/assets/css/master.css"
+                       ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
           ],
