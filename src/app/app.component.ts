@@ -6,10 +6,9 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-root',
   standalone: true,
-  // imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [SidebarComponent]
+  imports: [RouterOutlet,SidebarComponent]
 })
 export class AppComponent {
   title = 'Dashboard';

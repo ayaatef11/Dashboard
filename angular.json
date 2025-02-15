@@ -29,6 +29,8 @@
             "styles": [
               "src/styles.css",
               "src/assets/css/all.min.css",
+              "src/assets/css/framework.css",
+              "src/assets/css/master.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
