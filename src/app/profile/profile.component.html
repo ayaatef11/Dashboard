@@ -132,6 +132,7 @@
         </div>
       </div>
       <!-- End Overview -->
+
       <!-- Start Other Data -->
       <div class="other-data d-flex gap-20">
         <div class="skills-card p-20 bg-white rad-10 mt-20">
@@ -147,54 +148,24 @@
             <li><span>Python</span><span>Django</span></li>
           </ul>
         </div>
+
         <div class="activities p-20 bg-white rad-10 mt-20">
           <h2 class="mt-0 mb-10">Latest Activities</h2>
           <p class="mt-0 mb-20 c-grey fs-15">Latest Activities Done By The User</p>
-          <div class="activity d-flex align-center txt-c-mobile">
-            <img src="/imgs/activity-01.png" alt="" />
+
+          <div *ngFor="let activity of activities" class="activity d-flex align-center txt-c-mobile">
+            <img [src]="activity.image" alt="" />
             <div class="info">
-              <span class="d-block mb-10">Store</span>
-              <span class="c-grey">Bought The Mastering Python Course</span>
+              <span class="d-block mb-10">{{ activity.title }}</span>
+              <span class="c-grey">{{ activity.description }}</span>
             </div>
             <div class="date">
-              <span class="d-block mb-10">18:10</span>
-              <span class="c-grey">Yesterday</span>
-            </div>
-          </div>
-          <div class="activity d-flex align-center txt-c-mobile">
-            <img src="/imgs/activity-02.png" alt="" />
-            <div class="info">
-              <span class="d-block mb-10">Academy</span>
-              <span class="c-grey">Got The PHP Certificate</span>
-            </div>
-            <div class="date">
-              <span class="d-block mb-10">16:05</span>
-              <span class="c-grey">Yesterday</span>
-            </div>
-          </div>
-          <div class="activity d-flex align-center txt-c-mobile">
-            <img src="/imgs/activity-03.png" alt="" />
-            <div class="info">
-              <span class="d-block mb-10">Badges</span>
-              <span class="c-grey">Unlocked The 10 Skills Badge</span>
-            </div>
-            <div class="date">
-              <span class="d-block mb-10">18:05</span>
-              <span class="c-grey">Yesterday</span>
-            </div>
-          </div>
-          <div class="activity d-flex align-center txt-c-mobile">
-            <img src="/imgs/activity-01.png" alt="" />
-            <div class="info">
-              <span class="d-block mb-10">Store</span>
-              <span class="c-grey">Bought The Typescript Course</span>
-            </div>
-            <div class="date">
-              <span class="d-block mb-10">12:05</span>
-              <span class="c-grey">Yesterday</span>
+              <span class="d-block mb-10">{{ activity.time }}</span>
+              <span class="c-grey">{{ activity.date }}</span>
             </div>
           </div>
         </div>
+
       </div>
       <!-- End Other Data -->
     </div>
