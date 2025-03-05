@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\dashboars-backend.props" />
+</Project>

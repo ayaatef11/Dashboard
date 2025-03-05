@@ -1,6 +1,9 @@
 import { NgClass, NgFor } from '@angular/common';
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule,OnInit ,inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { HttpClient , provideHttpClient} from '@angular/common/http';
+import { MenuItem } from '../Models/Menue.model';
+import { ApiService } from '../Services/sidebar.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,15 +12,30 @@ import { RouterLink } from '@angular/router';
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })
-export class SidebarComponent {
-  menuItems = [
-    { path: '/dashboard', icon: 'fa-chart-bar', label: 'Dashboard' },
-    { path: '/settings', icon: 'fa-gear', label: 'Settings' },
-    { path: '/profile', icon: 'fa-user', label: 'Profile' },
-    { path: '/projects', icon: 'fa-diagram-project', label: 'Projects' },
-    { path: '/courses', icon: 'fa-graduation-cap', label: 'Courses' },
-    { path: '/friends', icon: 'fa-circle-user', label: 'Friends' },
-    { path: '/files', icon: 'fa-file', label: 'Files' },
-    { path: '/plans', icon: 'fa-credit-card', label: 'Plans' },
-  ];
+export class SidebarComponent implements OnInit {
+
+  menuItems: MenuItem[] = []; // Stores the fetched menu items
+  // private http:HttpClient = inject(HttpClient); // ✅ Inject HttpClient
+
+   constructor(private apiService: ApiService) {} // Inject HttpClient
+
+  ngOnInit(): void {
+    this.getMenuItems();
+  }
+
+  getMenuItems(): void {
+    this.apiService.getMenuItems().subscribe({
+      next: (data) => {
+        this.menuItems = data;
+        console.log('Fetched menu items:', this.menuItems);
+      },
+      error: (err) => {
+        console.error('Error fetching menu items:', err);
+      }
+    });
+  }
+
+
+  //   this.http.get<any[]>('http://localhost:5275/api/menuitems')
+
 }

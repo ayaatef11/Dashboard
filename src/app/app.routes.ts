@@ -10,6 +10,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 export const routes: Routes = [
   { path: 'courses', component: CoursesComponent },
@@ -19,6 +20,7 @@ export const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'settings', component: SettingsComponent },
+  { path: 'sidebar', component: SidebarComponent },
   { path: 'dashboard', component: DashboardComponent }
 
 ];

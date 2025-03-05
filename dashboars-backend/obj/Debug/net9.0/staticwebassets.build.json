@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "/EiTuVx20qIrzi+bz8uu1KTH2sgZlk7o8p1HlAlFjdA=",
+  "Source": "dashboars-backend",
+  "BasePath": "_content/dashboars-backend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
