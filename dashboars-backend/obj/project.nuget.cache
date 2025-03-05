@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "9Hc52Znw/io=",
+  "success": true,
+  "projectFilePath": "F:\\3-Front-end\\1-Dashboard\\dashboars-backend\\dashboars-backend.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Aya Atef\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.2\\microsoft.aspnetcore.openapi.9.0.2.nupkg.sha512",
+    "C:\\Users\\Aya Atef\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
