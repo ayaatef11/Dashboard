@@ -1,0 +1,10 @@
+[
+  {"Id":1, "name": "Dashboard","icon":  "fa-regular fa-chart-bar", "link": "index" },
+  { "Id":2,"name": "Settings", "icon":  "fa-solid fa-gear", "link": "settings" },
+  { "Id":3,"name": "Profile",   "icon": "fa-regular fa-user", "link": "profile" },
+  { "Id":4,"name": "Projects", "icon":  "fa-solid fa-diagram-project", "link": "projects" },
+  { "Id":5,"name": "Courses",   "icon": "fa-solid fa-graduation-cap", "link": "courses" },
+  { "Id":6,"name": "Friends",   "icon": "fa-regular fa-circle-user", "link": "friends" },
+  { "Id":7,"name": "Files ",    "icon": "fa-regular fa-file", "link": "files" },
+  { "Id":8,"name": "Plans ",    "icon": "fa-regular fa-credit-card", "link": "plans" }
+]

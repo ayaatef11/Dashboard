@@ -12,16 +12,16 @@ import { RouterLink } from '@angular/router';
 export class SettingsComponent {
 
 
-  menuItems = [
-    { name: 'Dashboard', icon: 'fa-regular fa-chart-bar', link: 'index' },
-    { name: 'Settings', icon: 'fa-solid fa-gear', link: 'settings' },
-    { name: 'Profile', icon: 'fa-regular fa-user', link: 'profile' },
-    { name: 'Projects', icon: 'fa-solid fa-diagram-project', link: 'projects' },
-    { name: 'Courses', icon: 'fa-solid fa-graduation-cap', link: 'courses' },
-    { name: 'Friends', icon: 'fa-regular fa-circle-user', link: 'friends' },
-    { name: 'Files', icon: 'fa-regular fa-file', link: 'files' },
-    { name: 'Plans', icon: 'fa-regular fa-credit-card', link: 'plans' }
-  ];
+  // menuItems = [
+  //   { name: 'Dashboard', icon: 'fa-regular fa-chart-bar', link: 'index' },
+  //   { name: 'Settings', icon: 'fa-solid fa-gear', link: 'settings' },
+  //   { name: 'Profile', icon: 'fa-regular fa-user', link: 'profile' },
+  //   { name: 'Projects', icon: 'fa-solid fa-diagram-project', link: 'projects' },
+  //   { name: 'Courses', icon: 'fa-solid fa-graduation-cap', link: 'courses' },
+  //   { name: 'Friends', icon: 'fa-regular fa-circle-user', link: 'friends' },
+  //   { name: 'Files', icon: 'fa-regular fa-file', link: 'files' },
+  //   { name: 'Plans', icon: 'fa-regular fa-credit-card', link: 'plans' }
+  // ];
 
   activeLink = 'settings'; // Set the currently active link
 

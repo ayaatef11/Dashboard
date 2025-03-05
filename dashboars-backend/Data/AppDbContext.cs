@@ -7,7 +7,7 @@ public class AppDbContext : DbContext
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
     public DbSet<menueItem> MenuItems { get; set; }
-
+    public DbSet<SettingsItem>SettingsItems {get;set;}
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         // optionsBuilder.UseSqlServer("DefaultConnection");//not recommended
@@ -23,6 +23,16 @@ public class AppDbContext : DbContext
         if (items != null)
         {
             modelBuilder.Entity<menueItem>().HasData(items);
+        }
+
+  var settingsItemsJson=Path.Combine(Directory.GetCurrentDirectory(), "DataSeeding", "SettingsItems.json");
+
+        var settingsJson = File.ReadAllText(settingsItemsJson );
+        var items_ss = JsonConvert.DeserializeObject<List<SettingsItem>>(settingsJson);
+
+        if (items_ss != null)
+        {
+            modelBuilder.Entity<SettingsItem>().HasData(items_ss);
         }
 
 }
