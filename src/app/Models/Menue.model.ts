@@ -6,8 +6,8 @@ export class MenuItem {
   constructor(
     id: number,
     path?: string,    // Menu item name
-  label?: string,
-  icon?:string
+    label?: string,
+    icon?:string
   ) {
     this.id = id;
     this.path=path;

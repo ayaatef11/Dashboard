@@ -1,27 +1,31 @@
 import { NgClass, NgFor, NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-
+import { SettingsService } from '../Services/settingsII.service';
+import { SettingsItem } from '../Models/SettingsItem.model';
 @Component({
   selector: 'app-settings',
   standalone: true,
-  imports: [NgFor,NgIf,RouterLink,NgClass],
+  imports: [NgFor,NgIf,NgClass],
   templateUrl: './settings.component.html',
   styleUrl: './settings.component.css'
 })
-export class SettingsComponent {
+export class SettingsComponent implements OnInit {
+
+  settings: SettingsItem[] = [];
+  constructor(private settingsService: SettingsService) {}
+  ngOnInit(): void {
+this.loadSettings();
+  }
+  loadSettings(): void {
+    this.settingsService.getSettings().subscribe({
+      next: (data) => this.settings = data,
+      error: (err) => console.error('Error fetching settings', err)
+    });
+  }
 
 
-  // menuItems = [
-  //   { name: 'Dashboard', icon: 'fa-regular fa-chart-bar', link: 'index' },
-  //   { name: 'Settings', icon: 'fa-solid fa-gear', link: 'settings' },
-  //   { name: 'Profile', icon: 'fa-regular fa-user', link: 'profile' },
-  //   { name: 'Projects', icon: 'fa-solid fa-diagram-project', link: 'projects' },
-  //   { name: 'Courses', icon: 'fa-solid fa-graduation-cap', link: 'courses' },
-  //   { name: 'Friends', icon: 'fa-regular fa-circle-user', link: 'friends' },
-  //   { name: 'Files', icon: 'fa-regular fa-file', link: 'files' },
-  //   { name: 'Plans', icon: 'fa-regular fa-credit-card', link: 'plans' }
-  // ];
+
 
   activeLink = 'settings'; // Set the currently active link
 
