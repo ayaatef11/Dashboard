@@ -1,0 +1,26 @@
+[
+  {
+    "image": "imgs/news-01.png",
+    "title": "Created SASS Section",
+    "description": "New SASS Examples & Tutorials",
+    "timeAgo": "3 Days Ago"
+  },
+  {
+    "image": "imgs/news-02.png",
+    "title": "Changed The Design",
+    "description": "A Brand New Website Design",
+    "timeAgo": "5 Days Ago"
+  },
+  {
+    "image": "imgs/news-03.png",
+    "title": "Team Increased",
+    "description": "3 Developers Joined The Team",
+    "timeAgo": "7 Days Ago"
+  },
+  {
+    "image": "imgs/news-04.png",
+    "title": "Added Payment Gateway",
+    "description": "Many New Payment Gateways Added",
+    "timeAgo": "9 Days Ago"
+  }
+]
