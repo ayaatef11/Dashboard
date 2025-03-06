@@ -1,0 +1,20 @@
+{
+  "features": [
+    { "text": "Access All Text Lessons", "available": true },
+    { "text": "Access All Videos Lessons", "available": true },
+    { "text": "Appear On Leaderboard", "available": true },
+    { "text": "Browse Content Without Ads", "available": false },
+    { "text": "Access All Assignments", "available": false },
+    { "text": "Get Daily Prizes", "available": false },
+    { "text": "Earn Certificate", "available": false },
+    { "text": "1 GB Space For Hosting Files", "available": false },
+    { "text": "Access Badge System", "available": false }
+  ],
+  "plan": {
+    "name": "Premium",
+    "price": 19.99,
+    "features": [
+      0, 1, 2, 3, 4, 5, 6, 7, 8
+    ]
+  }
+}
