@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Twitter",
+    "icon": "fa-twitter",
+    "followers": "90K Followers",
+    "action": "Follow",
+    "classs": "twitter"
+  },
+  {
+    "name": "Facebook",
+    "icon": "fa-facebook-f",
+    "followers": "2M Likes",
+    "action": "Like",
+    "classs": "facebook"
+  },
+  {
+    "name": "YouTube",
+    "icon": "fa-youtube",
+    "followers": "1M Subs",
+    "action": "Subscribe",
+    "classs": "youtube"
+  },
+  {
+    "name": "LinkedIn",
+    "icon": "fa-linkedin",
+    "followers": "70K Followers",
+    "action": "Follow",
+    "classs": "linkedin"
+  }
+]
