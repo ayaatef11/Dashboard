@@ -1,0 +1,23 @@
+[
+  {
+    "type": "Money",
+    "amount": "$20.000",
+    "icon": "fa-dollar-sign",
+    "color": "blue",
+    "progress": 80
+  },
+  {
+    "type": "Projects",
+    "amount": "24",
+    "icon": "fa-code",
+    "color": "orange",
+    "progress": 55
+  },
+  {
+    "type": "Team",
+    "amount": "12",
+    "icon": "fa-user",
+    "color": "green",
+    "progress": 75
+  }
+]
