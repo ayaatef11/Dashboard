@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace YourNamespace.Controllers
-{
+[EnableCors("AllowAngularApp")]
+
     [Route("api/[controller]")]
     [ApiController]
     public class ServerController : ControllerBase
@@ -95,4 +95,4 @@ namespace YourNamespace.Controllers
             return NoContent();
         }
     }
-}
+
