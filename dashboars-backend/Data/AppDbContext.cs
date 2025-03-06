@@ -13,6 +13,7 @@ public class AppDbContext : DbContext
     public DbSet<Server>Servers {get;set;}
     public DbSet<SocialMedia>SocialMedias {get;set;}
     public DbSet<Widget>Widgets {get;set;}
+    public DbSet<Project>Projects {get;set;}
 
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

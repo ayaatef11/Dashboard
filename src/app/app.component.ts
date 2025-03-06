@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SidebarComponent } from "./sidebar/sidebar.component";
 import { RouterModule } from '@angular/router';
+import { SidebarComponent } from './Components/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [RouterOutlet,SidebarComponent]
+  imports: [RouterOutlet]
 })
 export class AppComponent {
   title = 'Dashboard';
