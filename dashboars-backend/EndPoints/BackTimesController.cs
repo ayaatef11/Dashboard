@@ -11,7 +11,7 @@ using System.Threading.Tasks;
     {
         private readonly AppDbContext _dbContext;
 
-        public BackupTimeController(AppDbContext dbContext)
+        public BackupTimesController(AppDbContext dbContext)
         {
             _dbContext = dbContext;
         }

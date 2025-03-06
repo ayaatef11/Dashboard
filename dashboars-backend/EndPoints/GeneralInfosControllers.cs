@@ -12,7 +12,7 @@ using System.Threading.Tasks;
         private readonly AppDbContext _dbContext;
 
         // Constructor that injects the AppDbContext
-        public GeneralInfoController(AppDbContext dbContext)
+        public GeneralInfosController(AppDbContext dbContext)
         {
             _dbContext = dbContext;
         }
