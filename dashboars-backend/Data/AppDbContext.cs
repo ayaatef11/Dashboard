@@ -8,32 +8,19 @@ public class AppDbContext : DbContext
 
     public DbSet<menueItem> MenuItems { get; set; }
     public DbSet<SettingsItem>SettingsItems {get;set;}
+    public DbSet<BackupTime>BackupTimes {get;set;}
+    public DbSet<GeneralInfo>GeneralInfos {get;set;}
+    public DbSet<Serrver>Servers {get;set;}
+    public DbSet<SocialMedia>SocialMedias {get;set;}
+    public DbSet<Widget>Widgets {get;set;}
+
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         // optionsBuilder.UseSqlServer("DefaultConnection");//not recommended
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
-{
-  //iterate over menueitems in the json file
-  var menueItemsJson=Path.Combine(Directory.GetCurrentDirectory(), "DataSeeding", "menuItems.json");
-
-        var menuItemsJson = File.ReadAllText(menueItemsJson);
-        var items = JsonConvert.DeserializeObject<List<menueItem>>(menuItemsJson);
-
-        if (items != null)
-        {
-            modelBuilder.Entity<menueItem>().HasData(items);
-        }
-
-  var settingsItemsJson=Path.Combine(Directory.GetCurrentDirectory(), "DataSeeding", "SettingsItems.json");
-
-        var settingsJson = File.ReadAllText(settingsItemsJson );
-        var items_ss = JsonConvert.DeserializeObject<List<SettingsItem>>(settingsJson);
-
-        if (items_ss != null)
-        {
-            modelBuilder.Entity<SettingsItem>().HasData(items_ss);
-        }
-
-}
+    {
+        modelBuilder.SeedData();
+    }
 }
