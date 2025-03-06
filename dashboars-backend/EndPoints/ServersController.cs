@@ -1,31 +1,38 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
-
+namespace YourNamespace.Controllers
+{
     [Route("api/[controller]")]
     [ApiController]
     public class ServerController : ControllerBase
     {
-        // Temporary in-memory data store for Servers (You would typically use a database here)
-        private static List<Server> servers = new List<Server>
+        private readonly AppDbContext _dbContext;
+
+        // Constructor to inject AppDbContext
+        public ServerController(AppDbContext dbContext)
         {
-            new Server("1", "Server A", true),
-            new Server("2", "Server B", false)
-        };
+            _dbContext = dbContext;
+        }
 
         // GET: api/Server
         [HttpGet]
-        public ActionResult<IEnumerable<Server>> Get()
+        public async Task<ActionResult<IEnumerable<Server>>> Get()
         {
+            // Retrieve all servers from the database
+            var servers = await _dbContext.Servers.ToListAsync();
             return Ok(servers);
         }
 
         // GET: api/Server/5
         [HttpGet("{id}")]
-        public ActionResult<Server> Get(string id)
+        public async Task<ActionResult<Server>> Get(string id)
         {
-            var server = servers.FirstOrDefault(s => s.Id == id);
+            // Find a specific server by ID
+            var server = await _dbContext.Servers.FindAsync(id);
             if (server == null)
             {
                 return NotFound();
@@ -36,45 +43,56 @@ using System.Linq;
 
         // POST: api/Server
         [HttpPost]
-        public ActionResult<Server> Post([FromBody] Server server)
+        public async Task<ActionResult<Server>> Post([FromBody] Server server)
         {
             if (server == null)
             {
                 return BadRequest();
             }
 
-            servers.Add(server);
+            // Add the new server to the database
+            _dbContext.Servers.Add(server);
+            await _dbContext.SaveChangesAsync();
+
+            // Return the created server with the location of the new resource
             return CreatedAtAction(nameof(Get), new { id = server.Id }, server);
         }
 
         // PUT: api/Server/5
         [HttpPut("{id}")]
-        public IActionResult Put(string id, [FromBody] Server server)
+        public async Task<IActionResult> Put(string id, [FromBody] Server server)
         {
-            var existingServer = servers.FirstOrDefault(s => s.Id == id);
+            var existingServer = await _dbContext.Servers.FindAsync(id);
             if (existingServer == null)
             {
                 return NotFound();
             }
 
+            // Update the existing server's properties
             existingServer.Name = server.Name;
             existingServer.Checked = server.Checked;
+
+            // Save the changes to the database
+            await _dbContext.SaveChangesAsync();
 
             return NoContent();
         }
 
         // DELETE: api/Server/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(string id)
+        public async Task<IActionResult> Delete(string id)
         {
-            var server = servers.FirstOrDefault(s => s.Id == id);
+            var server = await _dbContext.Servers.FindAsync(id);
             if (server == null)
             {
                 return NotFound();
             }
 
-            servers.Remove(server);
+            // Remove the server from the database
+            _dbContext.Servers.Remove(server);
+            await _dbContext.SaveChangesAsync();
+
             return NoContent();
         }
     }
-
+}

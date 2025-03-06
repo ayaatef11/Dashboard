@@ -1,31 +1,37 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 
     [Route("api/[controller]")]
     [ApiController]
-    public class GeneralInfoController : ControllerBase
+    public class GeneralInfosController : ControllerBase
     {
-        // Temporary in-memory data store for GeneralInfos (You would typically use a database here)
-        private static List<GeneralInfo> generalInfos = new List<GeneralInfo>
+        private readonly AppDbContext _dbContext;
+
+        // Constructor that injects the AppDbContext
+        public GeneralInfoController(AppDbContext dbContext)
         {
-            new GeneralInfo("Username", "text", "username", "Enter your username", "", false, true),
-            new GeneralInfo("Email", "email", "email", "Enter your email", "", false, false)
-        };
+            _dbContext = dbContext;
+        }
 
         // GET: api/GeneralInfo
         [HttpGet]
-        public ActionResult<IEnumerable<GeneralInfo>> Get()
+        public async Task<ActionResult<IEnumerable<GeneralInfo>>> Get()
         {
+            // Get all GeneralInfo from the database
+            var generalInfos = await _dbContext.GeneralInfos.ToListAsync();
             return Ok(generalInfos);
         }
 
         // GET: api/GeneralInfo/5
         [HttpGet("{id}")]
-        public ActionResult<GeneralInfo> Get(string id)
+        public async Task<ActionResult<GeneralInfo>> Get(string id)
         {
-            var generalInfo = generalInfos.FirstOrDefault(g => g.Id == id);
+            // Find a specific GeneralInfo by id
+            var generalInfo = await _dbContext.GeneralInfos.FindAsync(id);
             if (generalInfo == null)
             {
                 return NotFound();
@@ -34,24 +40,25 @@ using System.Linq;
             return Ok(generalInfo);
         }
 
-        // POST: api/GeneralInfo
         [HttpPost]
-        public ActionResult<GeneralInfo> Post([FromBody] GeneralInfo generalInfo)
+        public async Task<ActionResult<GeneralInfo>> Post([FromBody] GeneralInfo generalInfo)
         {
             if (generalInfo == null)
             {
                 return BadRequest();
             }
 
-            generalInfos.Add(generalInfo);
+            _dbContext.GeneralInfos.Add(generalInfo);
+            await _dbContext.SaveChangesAsync();
+
+            // Return the created GeneralInfo with the location of the new resource
             return CreatedAtAction(nameof(Get), new { id = generalInfo.Id }, generalInfo);
         }
 
-        // PUT: api/GeneralInfo/5
         [HttpPut("{id}")]
-        public IActionResult Put(string id, [FromBody] GeneralInfo generalInfo)
+        public async Task<IActionResult> Put(string id, [FromBody] GeneralInfo generalInfo)
         {
-            var existingGeneralInfo = generalInfos.FirstOrDefault(g => g.Id == id);
+            var existingGeneralInfo = await _dbContext.GeneralInfos.FindAsync(id);
             if (existingGeneralInfo == null)
             {
                 return NotFound();
@@ -64,20 +71,24 @@ using System.Linq;
             existingGeneralInfo.Disabled = generalInfo.Disabled;
             existingGeneralInfo.ShowLink = generalInfo.ShowLink;
 
+            await _dbContext.SaveChangesAsync();
+
             return NoContent();
         }
 
-        // DELETE: api/GeneralInfo/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(string id)
+        public async Task<IActionResult> Delete(string id)
         {
-            var generalInfo = generalInfos.FirstOrDefault(g => g.Id == id);
+            var generalInfo = await _dbContext.GeneralInfos.FindAsync(id);
             if (generalInfo == null)
             {
                 return NotFound();
             }
 
-            generalInfos.Remove(generalInfo);
+            _dbContext.GeneralInfos.Remove(generalInfo);
+            await _dbContext.SaveChangesAsync();
+
             return NoContent();
         }
     }
+

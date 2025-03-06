@@ -1,31 +1,32 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 
     [Route("api/[controller]")]
     [ApiController]
-    public class BackupTimeController : ControllerBase
+    public class BackupTimesController : ControllerBase
     {
-        // Temporary in-memory data store for BackupTimes (You would typically use a database here)
-        private static List<BackupTime> backupTimes = new List<BackupTime>
-        {
-            new BackupTime("1", "Daily Backup", true),
-            new BackupTime("2", "Weekly Backup", false)
-        };
+        private readonly AppDbContext _dbContext;
 
-        // GET: api/BackupTime
-        [HttpGet]
-        public ActionResult<IEnumerable<BackupTime>> Get()
+        public BackupTimeController(AppDbContext dbContext)
         {
+            _dbContext = dbContext;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<BackupTime>>> Get()
+        {
+            var backupTimes = await _dbContext.BackupTimes.ToListAsync();
             return Ok(backupTimes);
         }
 
-        // GET: api/BackupTime/5
         [HttpGet("{id}")]
-        public ActionResult<BackupTime> Get(string id)
+        public async Task<ActionResult<BackupTime>> Get(string id)
         {
-            var backupTime = backupTimes.FirstOrDefault(b => b.Id == id);
+            var backupTime = await _dbContext.BackupTimes.FindAsync(id);
             if (backupTime == null)
             {
                 return NotFound();
@@ -34,24 +35,24 @@ using System.Linq;
             return Ok(backupTime);
         }
 
-        // POST: api/BackupTime
         [HttpPost]
-        public ActionResult<BackupTime> Post([FromBody] BackupTime backupTime)
+        public async Task<ActionResult<BackupTime>> Post([FromBody] BackupTime backupTime)
         {
             if (backupTime == null)
             {
                 return BadRequest();
             }
 
-            backupTimes.Add(backupTime);
+            _dbContext.BackupTimes.Add(backupTime);
+            await _dbContext.SaveChangesAsync();
+
             return CreatedAtAction(nameof(Get), new { id = backupTime.Id }, backupTime);
         }
 
-        // PUT: api/BackupTime/5
         [HttpPut("{id}")]
-        public IActionResult Put(string id, [FromBody] BackupTime backupTime)
+        public async Task<IActionResult> Put(string id, [FromBody] BackupTime backupTime)
         {
-            var existingBackupTime = backupTimes.FirstOrDefault(b => b.Id == id);
+            var existingBackupTime = await _dbContext.BackupTimes.FindAsync(id);
             if (existingBackupTime == null)
             {
                 return NotFound();
@@ -60,20 +61,24 @@ using System.Linq;
             existingBackupTime.Label = backupTime.Label;
             existingBackupTime.Checked = backupTime.Checked;
 
+            await _dbContext.SaveChangesAsync();
+
             return NoContent();
         }
 
-        // DELETE: api/BackupTime/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(string id)
+        public async Task<IActionResult> Delete(string id)
         {
-            var backupTime = backupTimes.FirstOrDefault(b => b.Id == id);
+            var backupTime = await _dbContext.BackupTimes.FindAsync(id);
             if (backupTime == null)
             {
                 return NotFound();
             }
 
-            backupTimes.Remove(backupTime);
+            _dbContext.BackupTimes.Remove(backupTime);
+            await _dbContext.SaveChangesAsync();
+
             return NoContent();
         }
     }
+
