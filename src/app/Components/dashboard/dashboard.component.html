@@ -1,0 +1,251 @@
+
+<div class="page d-flex">
+
+<div class="content w-full">
+  <!-- Start Head -->
+  <div class="head bg-white p-15 between-flex">
+    <div class="search p-relative">
+      <input class="p-10" type="search" placeholder="Type A Keyword" />
+    </div>
+
+    <div class="icons d-flex align-center">
+      <span class="notification p-relative">
+        <i class="fa-regular fa-bell fa-lg"></i>
+      </span>
+      <img src="/imgs/avatar.png" alt="" />
+    </div>
+  </div>
+  <!-- End Head -->
+
+  <h1 class="p-relative">Dashboard</h1>
+  <div class="wrapper d-grid gap-20">
+    <!-- Start Welcome Widget -->
+    <div class="welcome bg-white rad-10 txt-c-mobile block-mobile">
+      <div class="intro p-20 d-flex space-between bg-eee">
+        <div>
+          <h2 class="m-0">Welcome</h2>
+          <p class="c-grey mt-5">Client</p>
+        </div>
+        <img class="hide-mobile" src="imgs/welcome.png" alt="" />
+      </div>
+      <img src="imgs/avatar.png" alt="" class="avatar" />
+      <div class="body txt-c d-flex p-20 mt-20 mb-20 block-mobile">
+        <div>Client <span class="d-block c-grey fs-14 mt-10">Developer</span></div>
+        <div>Age <span class="d-block c-grey fs-14 mt-10">Projects</span></div>
+        <div>Earns <span class="d-block c-grey fs-14 mt-10">Earned</span></div>
+      </div>
+      <a href="profile.html" class="visit d-block fs-14 bg-blue c-white w-fit btn-shape">Profile</a>
+    </div>
+    <!-- End Welcome Widget -->
+    <!-- Start Quick Draft Widget -->
+    <div class="quick-draft p-20 bg-white rad-10">
+      <h2 class="mt-0 mb-10">Quick Draft</h2>
+      <p class="mt-0 mb-20 c-grey fs-15">Write A Draft For Your Ideas</p>
+      <form>
+        <input class="d-block mb-20 w-full p-10 b-none bg-eee rad-6" type="text" placeholder="Title" />
+        <textarea class="d-block mb-20 w-full p-10 b-none bg-eee rad-6" placeholder="Your Thought"></textarea>
+        <input class="save d-block fs-14 bg-blue c-white b-none w-fit btn-shape" type="submit" value="Save" />
+      </form>
+    </div>
+    <!-- End Quick Draft Widget -->
+    <!-- Start Targets Widget -->
+    <div class="targets p-20 bg-white rad-10">
+      <h2 class="mt-0 mb-10">Yearly Targets</h2>
+      <p class="mt-0 mb-20 c-grey fs-15">Targets Of The Year</p>
+      <div *ngFor="let target of targets" class="target-row mb-20 center-flex" [class]="target.color">
+        <div class="icon center-flex">
+          <i class="fa-solid fa-lg" [ngClass]="'fa-' + target.icon" [class]="'c-' + target.color"></i>
+        </div>
+        <div class="details">
+          <span class="fs-14 c-grey">{{ target.type }}</span>
+          <span class="d-block mt-5 mb-10 fw-bold">{{ target.amount }}</span>
+          <div class="progress p-relative">
+            <span class="bg-" [class]="'bg-' + target.color" [style.width.%]="target.progress">
+              <span [class]="'bg-' + target.color">{{ target.progress }}%</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <!-- End Targets Widget -->
+    <!-- Start Ticket Widget -->
+    <div class="tickets p-20 bg-white rad-10">
+      <h2 class="mt-0 mb-10">Tickets Statistics</h2>
+      <p class="mt-0 mb-20 c-grey fs-15">Everything About Support Tickets</p>
+      <div class="d-flex txt-c gap-20 f-wrap">
+
+        <div *ngFor="let status of statuses" class="box p-20 rad-10 fs-13 c-grey">
+          <i class="fa-regular fa-2x mb-10" [ngClass]="'fa-' + status.icon + ' c-' + status.color"></i>
+          <span class="d-block c-black fw-bold fs-25 mb-5">{{ status.count }}</span>
+          {{ status.label }}
+        </div>
+
+      </div>
+    </div>
+    <!-- End Ticket Widget -->
+    <!-- Start Latest News Widget -->
+    <div class="latest-news p-20 bg-white rad-10 txt-c-mobile">
+      <h2 class="mt-0 mb-20">Latest News</h2>
+
+      <div *ngFor="let news of newsItems" class="news-row d-flex align-center">
+        <img [src]="news.image" alt="" />
+        <div class="info">
+          <h3>{{ news.title }}</h3>
+          <p class="m-0 fs-14 c-grey">{{ news.description }}</p>
+        </div>
+        <div class="btn-shape bg-eee fs-13 label">{{ news.timeAgo }}</div>
+      </div>
+
+    </div>
+    <!-- End Latest News Widget -->
+    <!-- Start Tasks Widget -->
+    <div class="tasks p-20 bg-white rad-10">
+      <h2 class="mt-0 mb-20">Latest Tasks</h2>
+
+      <div *ngFor="let task of tasks" class="task-row between-flex" [ngClass]="{'done': task.done}">
+        <div class="info">
+          <h3 class="mt-0 mb-5 fs-15">{{ task.title }}</h3>
+          <p class="m-0 c-grey">{{ task.description }}</p>
+        </div>
+        <i class="fa-regular fa-trash-can delete"></i>
+      </div>
+
+
+    </div>
+    <!-- End Tasks -->
+    <!-- Start Top Search Word Widget -->
+    <div class="search-items p-20 bg-white rad-10">
+      <h2 class="mt-0 mb-20">Top Search Items</h2>
+      <div class="items-head d-flex space-between c-grey mb-10">
+        <div>Keyword</div>
+        <div>Search Count</div>
+      </div>
+
+      <div *ngFor="let keyword of keywords" class="items d-flex space-between pt-15 pb-15">
+        <span>{{ keyword.name }}</span>
+        <span class="bg-eee fs-13 btn-shape">{{ keyword.count }}</span>
+      </div>
+
+
+    </div>
+    <!-- End Top Search Word Widget -->
+    <!-- Start Latest Uploads Widget -->
+    <div class="latest-uploads p-20 bg-white rad-10">
+      <h2 class="mt-0 mb-20">Latest Uploads</h2>
+
+        <ul class="m-0">
+          <li *ngFor="let file of files" class="between-flex pb-10 mb-10">
+            <div class="d-flex align-center">
+              <img class="mr-10" [src]="file.icon" alt="" />
+              <div>
+                <span class="d-block">{{ file.name }}</span>
+                <span class="fs-15 c-grey">{{ file.type }}</span>
+              </div>
+            </div>
+            <div class="bg-eee btn-shape fs-13">{{ file.size }}</div>
+          </li>
+        </ul>
+
+    </div>
+    <!-- End Latest Uploads Widget -->
+    <!-- Start Last Project Progress Widget -->
+    <div class="last-project p-20 bg-white rad-10 p-relative">
+      <h2 class="mt-0 mb-20">Last Project Progress</h2>
+      <ul class="m-0 p-relative">
+        <li class="mt-25 d-flex align-center done">Got The Project</li>
+        <li class="mt-25 d-flex align-center done">Started The Project</li>
+        <li class="mt-25 d-flex align-center done">The Project About To Finish</li>
+        <li class="mt-25 d-flex align-center current">Test The Project</li>
+        <li class="mt-25 d-flex align-center">Finish The Project & Get Money</li>
+      </ul>
+      <img class="launch-icon hide-mobile" src="/imgs/project.png" alt="" />
+    </div>
+    <!-- End Last Project Progress Widget -->
+
+    <!-- Start Reminders Widget -->
+    <div class="reminders p-20 bg-white rad-10 p-relative">
+      <h2 class="mt-0 mb-25">Reminders</h2>
+
+
+    </div>
+    <!-- End Reminders Widget -->
+    <!-- Start Latest Post Widget -->
+    <div class="latest-post p-20 bg-white rad-10 p-relative">
+      <h2 class="mt-0 mb-25">Latest Post</h2>
+      <div class="top d-flex align-center">
+        <img class="avatar mr-15" src="/imgs/avatar.png" alt="" />
+        <div class="info">
+          <span class="d-block mb-5 fw-bold">client Client</span>
+          <span class="c-grey">About 3 Hours Ago</span>
+        </div>
+      </div>
+      <div class="post-content txt-c-mobile pt-20 pb-20 mt-20 mb-20">
+        You can fool all of the people some of the time, and some of the people all of the time, but you can't
+        fool all of the people all of the time.
+      </div>
+      <div class="post-stats between-flex c-grey">
+        <div>
+          <i class="fa-regular fa-heart"></i>
+          <span>1.8K</span>
+        </div>
+        <div>
+          <i class="fa-regular fa-comments"></i>
+          <span>500</span>
+        </div>
+      </div>
+    </div>
+    <!-- End Latest Post Widget -->
+    <!-- Start Social Media Stats Widget -->
+    <div class="social-media p-20 bg-white rad-10 p-relative">
+      <h2 class="mt-0 mb-25">Social Media Stats</h2>
+
+      <div *ngFor="let platform of socialPlatforms" class="box p-15 p-relative mb-10 between-flex" [ngClass]="platform.class">
+        <i class="fa-brands fa-2x c-white h-full center-flex" [ngClass]="platform.icon"></i>
+        <span>{{ platform.followers }}</span>
+        <a class="fs-13 c-white btn-shape" href="#">{{ platform.action }}</a>
+      </div>
+
+    <!-- Start End Media Stats Widget -->
+  </div>
+  <!-- Start Projects Table -->
+  <div class="projects p-20 bg-white rad-10 m-20">
+    <h2 class="mt-0 mb-20">Projects</h2>
+    <div class="responsive-table">
+      <table class="fs-15 w-full">
+        <!-- .........................................important ........ -->
+        <thead>
+          <tr>
+            <td>Name</td>
+            <td>Finish Date</td>
+            <td>Client</td>
+            <td>Price</td>
+            <td>Team</td>
+            <td>Status</td>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let project of projects">
+            <td>{{ project.name }}</td>
+            <td>{{ project.finishDate }}</td>
+            <td>{{ project.client }}</td>
+            <td>{{ project.price }}</td>
+            <td>
+              <img *ngFor="let member of project.team" [src]="member" alt="Team Member" />
+            </td>
+            <td>
+              <span class="label btn-shape c-white" [ngClass]="project.status.class">
+                {{ project.status.text }}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+  <!-- End Projects Table -->
+</div>
+</div>
