@@ -3,6 +3,16 @@ import { Component,OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SettingsService } from '../Services/settingsII.service';
 import { SettingsItem } from '../Models/SettingsItem.model';
+import { GeneralInfo } from '../Models/GeneralInfo.model';
+import { GeneralInfosService } from '../Services/GeneralInfo.service';
+import { SocialMedia } from '../Models/SocialMedia.model';
+import { SocialMediasService } from '../Services/SocialMedia.service';
+import { Widget } from '../Models/Widget.model';
+import { WidgetService } from '../Services/Widget.service';
+import { BackupTime } from '../Models/BackupTime.model';
+import { Server } from '../Models/Server.model';
+import { BackupTimeService } from '../Services/BackupTime.service';
+import { ServersService } from '../Services/Server.service';
 @Component({
   selector: 'app-settings',
   standalone: true,
@@ -11,12 +21,24 @@ import { SettingsItem } from '../Models/SettingsItem.model';
   styleUrl: './settings.component.css'
 })
 export class SettingsComponent implements OnInit {
-
+//call the models
   settings: SettingsItem[] = [];
-  constructor(private settingsService: SettingsService) {}
+  infos: GeneralInfo[] = [];
+  media: SocialMedia[] = [];
+  widgets:Widget[]=[];
+  backup:BackupTime[]=[];
+  servers:Server[]=[];
+  //call the services
+  constructor(private settingsService: SettingsService,private generalInfoService:GeneralInfosService
+    ,private socialMedias:SocialMediasService,private widgetServices:WidgetService
+  ,private backupService:BackupTimeService, private ServerServices: ServersService) {}
+
   ngOnInit(): void {
-this.loadSettings();
+     this.loadSettings();
+     this.loadGenralInfos();
+
   }
+
   loadSettings(): void {
     this.settingsService.getSettings().subscribe({
       next: (data) => this.settings = data,
@@ -24,8 +46,43 @@ this.loadSettings();
     });
   }
 
+loadGenralInfos():void{
+  this.generalInfoService.getGeneralInfos().subscribe({
+    next:(data)=>this.infos=data,
+    error:(err)=>console.error("Error fetching infos",err)
+  });
+}
+
+loadWidgets():void{
+this.widgetServices.getWidgets().subscribe({
+  next:(data)=>this.widgets=data,
+  error:(err)=>console.error('Error fetching medias',err)
+});
+}
+
+loadSocialMedias():void{
+  this.socialMedias.getSocialMedias().subscribe({
+    next:(data)=>this.media=data,
+    error:(err)=>console.error('Error fetching medias',err)
+  });
+}
 
 
+loadBackupTimes():void{
+  this.backupService.getTimes().subscribe({
+    next:(data)=>this.backup=data,
+    error:(err)=>console.error('Error fetching medias',err)
+  });
+}
+
+
+
+loadServers():void{
+  this.ServerServices.getServers().subscribe({
+    next:(data)=>this.servers=data,
+    error:(err)=>console.error('Error fetching medias',err)
+  });
+}
 
   activeLink = 'settings'; // Set the currently active link
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { GeneralInfo } from '../Models/GeneralInfo.model';
+import { Widget } from '../Models/Widget.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,23 +10,23 @@ export class WidgetService {
 
   constructor(private http: HttpClient) {}
 
-  getWidget(): Observable<GeneralInfo[]> {
-    return this.http.get<GeneralInfo[]>(this.apiUrl);
+  getWidgets(): Observable<Widget[]> {
+    return this.http.get<Widget[]>(this.apiUrl);
   }
 
-  getGeneralInfoById(id: number): Observable<GeneralInfo> {
-    return this.http.get<GeneralInfo>(`${this.apiUrl}/${id}`);
+  getWidgetById(id: number): Observable<Widget> {
+    return this.http.get<Widget>(`${this.apiUrl}/${id}`);
   }
 
-  addGeneralInfo(GeneralInfo: GeneralInfo): Observable<GeneralInfo> {
-    return this.http.post<GeneralInfo>(this.apiUrl, GeneralInfo);
+  addWidget(Widget: Widget): Observable<Widget> {
+    return this.http.post<Widget>(this.apiUrl, Widget);
   }
 
-  updateGeneralInfo(id: number, GeneralInfo: GeneralInfo): Observable<GeneralInfo> {
-    return this.http.put<GeneralInfo>(`${this.apiUrl}/${id}`, GeneralInfo);
+  updateWidget(id: number, Widget: Widget): Observable<Widget> {
+    return this.http.put<Widget>(`${this.apiUrl}/${id}`, Widget);
   }
 
-  deleteGeneralInfo(id: number): Observable<void> {
+  deleteWidget(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }
