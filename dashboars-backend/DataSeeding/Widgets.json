@@ -1,8 +1,0 @@
- [
-  { "id": "one", "name": "Quick Draft", "checked": true },
-  { "id": "two", "name": "Yearly Targets", "checked": true },
-  { "id": "three", "name": "Tickets Statistics", "checked": true },
-  { "id": "four", "name": "Latest News", "checked": true },
-  { "id": "five", "name": "Latest Tasks", "checked": false },
-  { "id": "six", "name": "Top Search Items", "checked": true }
-]

@@ -1,5 +1,0 @@
-[
-  { "id": "server-one", "name": "Megaman", "checked": false },
-  { "id": "server-two", "name": "Zero", "checked": true },
-  { "id": "server-three", "name": "Sigma", "checked": false }
-]

@@ -1,5 +1,0 @@
-[
-  { "label": "First Name", "type": "text", "id": "first", "placeholder": "First Name", "value": "", "disabled": false , "showLink": false},
-  { "label": "Last Name", "type": "text", "id": "last", "placeholder": "Last Name", "value": "", "disabled": false,"showLink": false },
-  { "label": "Email", "type": "email", "id": "email", "placeholder": "Email", "value": "o@nn.sa", "disabled": true, "showLink": true }
-]

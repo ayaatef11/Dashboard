@@ -1,5 +1,0 @@
-[
-  { "id": "daily", "label": "Daily", "checked": true },
-  { "id": "weekly", "label": "Weekly", "checked": false },
-  { "id": "monthly", "label": "Monthly", "checked": false }
-]
