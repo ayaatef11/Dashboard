@@ -1,0 +1,30 @@
+ [
+  {
+    "name": "PDF Files",
+    "count": 130,
+    "size": "6.5GB",
+    "icon": "fa-file-pdf",
+    "color": "c-red"
+  },
+  {
+    "name": "Images",
+    "count": 115,
+    "size": "3.5GB",
+    "icon": "fa-images",
+    "color": "c-green"
+  },
+  {
+    "name": "Word Files",
+    "count": 110,
+    "size": "3.2GB",
+    "icon": "fa-file-word",
+    "color": "c-blue"
+  },
+  {
+    "name": "CSV Files",
+    "count": 99,
+    "size": "2.9GB",
+    "icon": "fa-file-csv",
+    "color": "c-orange"
+  }
+]
