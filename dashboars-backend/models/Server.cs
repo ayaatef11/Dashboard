@@ -12,6 +12,5 @@ public class Server
         Checked = checkedValue;
     }
 
-    // Default Constructor (optional)
-    public Server() { }
+    
 }

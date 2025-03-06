@@ -12,6 +12,5 @@ public class Widget
         Checked = checkedValue;
     }
 
-    // Default Constructor (optional, useful for serialization)
-    public Widget() { }
+  
 }

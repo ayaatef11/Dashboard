@@ -12,6 +12,4 @@ public class SocialMedia
         Placeholder = placeholder;
     }
 
-    // Default Constructor (optional, useful for serialization)
-    public SocialMedia() { }
 }
