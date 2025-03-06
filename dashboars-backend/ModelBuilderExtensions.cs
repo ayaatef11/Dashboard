@@ -9,7 +9,7 @@ public static class ModelBuilderExtensions
     {
         string dataPath = Path.Combine(Directory.GetCurrentDirectory(), "DataSeeding");
 
-        modelBuilder.SeedJsonData<MenuItem>(dataPath, "menuItems.json");
+        modelBuilder.SeedJsonData<menueItem>(dataPath, "menuItems.json");
         modelBuilder.SeedJsonData<SettingsItem>(dataPath, "SettingsItems.json");
         modelBuilder.SeedJsonData<BackupTime>(dataPath, "BackupTimes.json");
         modelBuilder.SeedJsonData<GeneralInfo>(dataPath, "GeneralInfos.json");

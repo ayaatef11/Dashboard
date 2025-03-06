@@ -156,3 +156,8 @@ F:\3-Front-end\1-Dashboard\dashboars-backend\bin\Debug\net9.0\tr\Microsoft.CodeA
 F:\3-Front-end\1-Dashboard\dashboars-backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 F:\3-Front-end\1-Dashboard\dashboars-backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 F:\3-Front-end\1-Dashboard\dashboars-backend\bin\Debug\net9.0\DataSeeding\SettingsItems.json
+F:\3-Front-end\1-Dashboard\dashboars-backend\bin\Debug\net9.0\DataSeeding\BackupTimes.json
+F:\3-Front-end\1-Dashboard\dashboars-backend\bin\Debug\net9.0\DataSeeding\GeneralInfos.json
+F:\3-Front-end\1-Dashboard\dashboars-backend\bin\Debug\net9.0\DataSeeding\Servers.json
+F:\3-Front-end\1-Dashboard\dashboars-backend\bin\Debug\net9.0\DataSeeding\SocialMedias.json
+F:\3-Front-end\1-Dashboard\dashboars-backend\bin\Debug\net9.0\DataSeeding\Widgets.json

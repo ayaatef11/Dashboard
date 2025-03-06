@@ -1,0 +1,6 @@
+[
+  { "id": "twitter", "icon": "fa-twitter", "placeholder": "Twitter Username" },
+  { "id": "facebook", "icon": "fa-facebook-f", "placeholder": "Facebook Username" },
+  { "id": "linkedin", "icon": "fa-linkedin", "placeholder": "LinkedIn Username" },
+  { "id": "youtube", "icon": "fa-youtube", "placeholder": "YouTube Username" }
+]

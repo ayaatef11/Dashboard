@@ -10,7 +10,7 @@ public class AppDbContext : DbContext
     public DbSet<SettingsItem>SettingsItems {get;set;}
     public DbSet<BackupTime>BackupTimes {get;set;}
     public DbSet<GeneralInfo>GeneralInfos {get;set;}
-    public DbSet<Serrver>Servers {get;set;}
+    public DbSet<Server>Servers {get;set;}
     public DbSet<SocialMedia>SocialMedias {get;set;}
     public DbSet<Widget>Widgets {get;set;}
 

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("dashboars-backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+108018191ea60ba4f353efef438446d67f5ec00f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+120fbe219219d7650f3d41ebd9ba3a9a605ba958")]
 [assembly: System.Reflection.AssemblyProductAttribute("dashboars-backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("dashboars-backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

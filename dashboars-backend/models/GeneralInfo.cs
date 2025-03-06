@@ -1,10 +1,10 @@
 public class GeneralInfo
 {
-    public string Label { get; set; }
-    public string Type { get; set; }
-    public string Id { get; set; }
-    public string Placeholder { get; set; }
-    public string Value { get; set; }
+    public string Label { get; set; }=string.Empty;
+    public string Type { get; set; }=string.Empty;
+    public string Id { get; set; }=string.Empty;
+    public string Placeholder { get; set; }=string.Empty;
+    public string Value { get; set; }=string.Empty;
     public bool Disabled { get; set; }
     public bool ShowLink { get; set; }
 
@@ -21,5 +21,4 @@ public class GeneralInfo
     }
 
     // Default Constructor (optional)
-    public GeneralInfo() { }
 }
