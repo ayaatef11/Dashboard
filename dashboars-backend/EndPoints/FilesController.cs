@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -8,30 +9,20 @@ using System.Threading.Tasks;
 
     [Route("api/[controller]")]
     [ApiController]
-    public class FilesController : ControllerBase
+    public class FilesController(AppDbContext dbContext) : ControllerBase
     {
-        private readonly AppDbContext _dbContext;
+        private readonly AppDbContext _dbContext = dbContext;
 
-        // Constructor that injects the AppDbContext
-        public FilesController(AppDbContext dbContext)
-        {
-            _dbContext = dbContext;
-        }
-
-        // GET: api/File
-        [HttpGet]
+  [HttpGet]
         public async Task<ActionResult<IEnumerable<File>>> Get()
         {
-            // Get all File from the database
             var Files = await _dbContext.Files.ToListAsync();
             return Ok(Files);
         }
 
-        // GET: api/File/5
         [HttpGet("{id}")]
         public async Task<ActionResult<File>> Get(string id)
         {
-            // Find a specific File by id
             var File = await _dbContext.Files.FindAsync(id);
             if (File == null)
             {
@@ -52,7 +43,6 @@ using System.Threading.Tasks;
             _dbContext.Files.Add(File);
             await _dbContext.SaveChangesAsync();
 
-            // Return the created File with the location of the new resource
             return CreatedAtAction(nameof(Get), new { id = File.Id }, File);
         }
 
