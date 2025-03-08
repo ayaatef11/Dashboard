@@ -1,6 +1,6 @@
 import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
-import { MenuItem } from '../../Models/Menue.model';
+import { Menue } from '../../Models/Menue.model';
 import { Course } from '../../Models/Course.model';
 
 @Component({
@@ -11,9 +11,9 @@ import { Course } from '../../Models/Course.model';
   styleUrl: './courses.component.css'
 })
 export class CoursesComponent {
-  menuItems:MenuItem[]=[];//get it using the api
+  menuItems:Menue[]=[];//get it using the api
 
-  activeLink = '/courses'; 
+  activeLink = '/courses';
 
   courses:Course[] =[];//create the api
 
