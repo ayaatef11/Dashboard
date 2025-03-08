@@ -2,8 +2,8 @@ import { NgClass, NgFor } from '@angular/common';
 import { Component, NgModule,OnInit ,inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { HttpClient , provideHttpClient} from '@angular/common/http';
-import { MenuItem } from '../Models/Menue.model';
-import { ApiService } from '../Services/sidebar.service';
+import { SidebarService } from '../../Services/sidebar.service';
+import { Menue } from '../../Models/Menue.model';
 
 @Component({
   selector: 'app-sidebar',
@@ -14,17 +14,17 @@ import { ApiService } from '../Services/sidebar.service';
 })
 export class SidebarComponent implements OnInit {
 
-  menuItems: MenuItem[] = []; // Stores the fetched menu items
+  menuItems: Menue[] = []; // Stores the fetched menu items
   // private http:HttpClient = inject(HttpClient); // ✅ Inject HttpClient
 
-   constructor(private apiService: ApiService) {} // Inject HttpClient
+   constructor(private sidebarService: SidebarService) {} // Inject HttpClient
 
   ngOnInit(): void {
     this.getMenuItems();
   }
 
   getMenuItems(): void {
-    this.apiService.getMenuItems().subscribe({
+    this.sidebarService.getMenuItems().subscribe({
       next: (data) => {
         this.menuItems = data;
         console.log('Fetched menu items:', this.menuItems);

@@ -1,5 +1,5 @@
 import { NgFor } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Dashboard } from '../../Models/Dashboard';
 import { DashboardService } from '../../Services/DashboardService.service';
 
@@ -10,10 +10,23 @@ import { DashboardService } from '../../Services/DashboardService.service';
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css'
 })
-export class ProjectsComponent implements ngOnInit {
+export class ProjectsComponent implements OnInit {
   projects:Dashboard[]=[];
 
   constructor(private dashboardService:DashboardService ) {
 
   }
+
+  ngOnInit(): void {
+    this.loadDashboards();
+
+ }
+
+ loadDashboards(): void {
+   this.dashboardService.getDashboards().subscribe({
+     next: (data) => this.projects = data,
+     error: (err) => console.error('Error fetching settings', err)
+   });
+ }
+
 }

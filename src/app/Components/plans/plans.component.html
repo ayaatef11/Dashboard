@@ -24,7 +24,7 @@
         </div>
 
         <ul>
-          <li *ngFor="let feature of features">
+          <li *ngFor="let feature of plan.features">
             <i class="fa-solid" [ngClass]="feature.available ? 'fa-check fa-fw yes' : 'fa-xmark fa-fw'"></i>
             <span>{{ feature.text }}</span>
             <i class="fa-solid fa-circle-info help"></i>
@@ -34,7 +34,7 @@
 
         <a href="#" class="btn-shape bg-green c-white d-block w-fit">Join</a>
       </div>
-      
+
 
 <!-- Start Plan -->
 <div class="plan orange bg-white p-20">
