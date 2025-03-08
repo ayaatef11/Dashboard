@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -8,16 +9,11 @@ using System.Threading.Tasks;
 
     [Route("api/[controller]")]
     [ApiController]
-    public class BackupTimesController : ControllerBase
+    public class BackupTimesController(AppDbContext dbContext) : ControllerBase
     {
-        private readonly AppDbContext _dbContext;
+        private readonly AppDbContext _dbContext = dbContext;
 
-        public BackupTimesController(AppDbContext dbContext)
-        {
-            _dbContext = dbContext;
-        }
-
-        [HttpGet]
+  [HttpGet]
         public async Task<ActionResult<IEnumerable<BackupTime>>> Get()
         {
             var backupTimes = await _dbContext.BackupTimes.ToListAsync();
