@@ -4,7 +4,6 @@ public class BackupTime
     public string Label { get; set; }=string.Empty;
     public bool Checked { get; set; }
 
-    // Constructor
     public BackupTime(string id, string label, bool checkedValue)
     {
         Id = id;
@@ -12,6 +11,4 @@ public class BackupTime
         Checked = checkedValue;
     }
 
-    // Default Constructor (optional)
-    public BackupTime() { }
 }

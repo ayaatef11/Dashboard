@@ -14,14 +14,12 @@ using System.Threading.Tasks;
     {
         private readonly AppDbContext _context = context;
 
-    // GET: api/menuitems
     [HttpGet]
         public async Task<ActionResult<IEnumerable<SettingsItem>>> GetSettingsItems()
         {
             return await _context.SettingsItems.ToListAsync();
         }
 
-        // GET: api/menuitems/5
         [HttpGet("{id}")]
         public async Task<ActionResult<SettingsItem>> GetSettingsItem(int id)
         {
@@ -35,7 +33,6 @@ using System.Threading.Tasks;
             return SettingsItem;
         }
 
-        // POST: api/menuitems
         [HttpPost]
         public async Task<ActionResult<SettingsItem>> PostSettingsItem(SettingsItem SettingsItem)
         {
@@ -45,7 +42,6 @@ using System.Threading.Tasks;
             return CreatedAtAction(nameof(GetSettingsItem), new { id = SettingsItem.Id }, SettingsItem);
         }
 
-        // PUT: api/menuitems/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutSettingsItem(int id, SettingsItem SettingsItem)
         {
@@ -60,7 +56,6 @@ using System.Threading.Tasks;
             return NoContent();
         }
 
-        // DELETE: api/menuitems/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSettingsItem(int id)
         {

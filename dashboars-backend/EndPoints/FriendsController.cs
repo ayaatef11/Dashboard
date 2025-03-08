@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -8,30 +9,20 @@ using System.Threading.Tasks;
 
     [Route("api/[controller]")]
     [ApiController]
-    public class FriendsController : ControllerBase
+    public class FriendsController(AppDbContext dbContext) : ControllerBase
     {
-        private readonly AppDbContext _dbContext;
+        private readonly AppDbContext _dbContext = dbContext;
 
-        // Constructor that injects the AppDbContext
-        public FriendsController(AppDbContext dbContext)
-        {
-            _dbContext = dbContext;
-        }
-
-        // GET: api/Friend
-        [HttpGet]
+  [HttpGet]
         public async Task<ActionResult<IEnumerable<Friend>>> Get()
         {
-            // Get all Friend from the database
             var Friends = await _dbContext.Friends.ToListAsync();
             return Ok(Friends);
         }
 
-        // GET: api/Friend/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Friend>> Get(string id)
         {
-            // Find a specific Friend by id
             var Friend = await _dbContext.Friends.FindAsync(id);
             if (Friend == null)
             {
@@ -52,7 +43,6 @@ using System.Threading.Tasks;
             _dbContext.Friends.Add(Friend);
             await _dbContext.SaveChangesAsync();
 
-            // Return the created Friend with the location of the new resource
             return CreatedAtAction(nameof(Get), new { id = Friend.Id }, Friend);
         }
 

@@ -1,37 +1,26 @@
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 [EnableCors("AllowAngularApp")]
 
     [Route("api/[controller]")]
     [ApiController]
-    public class GeneralInfosController : ControllerBase
+    public class GeneralInfosController(AppDbContext dbContext) : ControllerBase
     {
-        private readonly AppDbContext _dbContext;
+        private readonly AppDbContext _dbContext = dbContext;
 
-        // Constructor that injects the AppDbContext
-        public GeneralInfosController(AppDbContext dbContext)
-        {
-            _dbContext = dbContext;
-        }
-
-        // GET: api/GeneralInfo
-        [HttpGet]
+  [HttpGet]
         public async Task<ActionResult<IEnumerable<GeneralInfo>>> Get()
         {
-            // Get all GeneralInfo from the database
             var generalInfos = await _dbContext.GeneralInfos.ToListAsync();
             return Ok(generalInfos);
         }
 
-        // GET: api/GeneralInfo/5
         [HttpGet("{id}")]
         public async Task<ActionResult<GeneralInfo>> Get(string id)
         {
-            // Find a specific GeneralInfo by id
             var generalInfo = await _dbContext.GeneralInfos.FindAsync(id);
             if (generalInfo == null)
             {
@@ -52,7 +41,6 @@ using System.Threading.Tasks;
             _dbContext.GeneralInfos.Add(generalInfo);
             await _dbContext.SaveChangesAsync();
 
-            // Return the created GeneralInfo with the location of the new resource
             return CreatedAtAction(nameof(Get), new { id = generalInfo.Id }, generalInfo);
         }
 

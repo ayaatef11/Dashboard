@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -8,16 +9,11 @@ using System.Threading.Tasks;
 
     [Route("api/[controller]")]
     [ApiController]
-    public class ProfilesController : ControllerBase
+    public class ProfilesController(AppDbContext dbContext) : ControllerBase
     {
-        private readonly AppDbContext _dbContext;
+        private readonly AppDbContext _dbContext = dbContext;
 
-        public ActivitysController(AppDbContext dbContext)
-        {
-            _dbContext = dbContext;
-        }
-
-        [HttpGet]
+  [HttpGet]
         public async Task<ActionResult<IEnumerable<Activity>>> Get()
         {
             var Activitys = await _dbContext.Activitys.ToListAsync();
@@ -59,8 +55,12 @@ using System.Threading.Tasks;
                 return NotFound();
             }
 
-            existingActivity.Label = Activity.Label;
-            existingActivity.Checked = Activity.Checked;
+            existingActivity.Date = Activity.Date;
+            existingActivity.Description = Activity.Description;
+            existingActivity.Image = Activity.Image;
+            existingActivity.Time = Activity.Time;
+            existingActivity.Title = Activity.Title;
+
 
             await _dbContext.SaveChangesAsync();
 
