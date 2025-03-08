@@ -6,7 +6,7 @@ public class AppDbContext : DbContext
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-    public DbSet<menueItem> MenuItems { get; set; }
+    public DbSet<Menue> MenuItems { get; set; }
     public DbSet<SettingsItem>SettingsItems {get;set;}
     public DbSet<BackupTime>BackupTimes {get;set;}
     public DbSet<GeneralInfo>GeneralInfos {get;set;}
@@ -17,6 +17,18 @@ public class AppDbContext : DbContext
     public DbSet<Activity>Activitys {get;set;}
     public DbSet<Friend>Friends {get;set;}
     public DbSet<File>Files {get;set;}
+    public DbSet<Course>Courses{get;set;}
+    public DbSet<Dashboard>Dashboards{get;set;}
+    public DbSet<Feature>Features{get;set;}
+    public DbSet<FileCategory>FileCategories{get;set;}
+    public DbSet<Keyword>Keywords{get;set;}
+    public DbSet<NewItem>NewItems{get;set;}
+    public DbSet<Plan>Plans{get;set;}
+    public DbSet<SocialPlatform>SocialPlatforms{get;set;}
+    public DbSet<Status>Statuses{get;set;}
+    public DbSet<Target>Targets{get;set;}
+    public DbSet<Task>Tasks{get;set;}
+    public DbSet<UserProfile>UsersProfiles{get;set;}
 
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
