@@ -3,11 +3,12 @@ import { NgFor, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Friend } from '../../Models/Friend.model';
 import { FriendService } from '../../Services/FriendsService.service';
+import { HeadHeadComponent } from "../../Shared/head-head/head-head.component";
 
 @Component({
   selector: 'app-friends',
   standalone: true,
-  imports: [NgFor,RouterLink,NgIf],
+  imports: [NgFor, RouterLink, NgIf, HeadHeadComponent],
   templateUrl: './friends.component.html',
   styleUrl: './friends.component.css'
 })

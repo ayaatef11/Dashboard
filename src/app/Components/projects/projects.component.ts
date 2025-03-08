@@ -2,11 +2,13 @@ import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Dashboard } from '../../Models/Dashboard';
 import { DashboardService } from '../../Services/DashboardService.service';
+import { RouterLink } from '@angular/router';
+import { HeadHeadComponent } from "../../Shared/head-head/head-head.component";
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, RouterLink, HeadHeadComponent],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css'
 })

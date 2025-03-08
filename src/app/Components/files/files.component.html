@@ -1,19 +1,7 @@
 <div class="page d-flex">
 
   <div class="content w-full">
-    <!-- Start Head -->
-    <div class="head bg-white p-15 between-flex">
-      <div class="search p-relative">
-        <input class="p-10" type="search" placeholder="Type A Keyword" />
-      </div>
-      <div class="icons d-flex align-center">
-        <span class="notification p-relative">
-          <i class="fa-regular fa-bell fa-lg"></i>
-        </span>
-        <img src="/imgs/avatar.png" alt="" />
-      </div>
-    </div>
-    <!-- End Head -->
+    <app-head-head></app-head-head>
 
     <h1 class="p-relative">Files</h1>
     <div class="files-page d-flex m-20 gap-20">
@@ -31,13 +19,11 @@
             <div class="size c-grey">{{ category.size }}</div>
           </div>
 
-<!-- ////////////////////////////////////////////////////////////////// -->
         <a class="upload bg-blue c-white fs-13 rad-6 d-block w-fit" href="#">
           <i class="fa-solid fa-angles-up mr-10"></i>
           Upload
         </a>
       </div>
-<!-- ////////////////////////////////////////////////////////////////////////////// -->
 
 <div class="files-content d-grid gap-20">
   <div *ngFor="let file of files" class="file bg-white p-10 rad-10">

@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { NgClass, NgFor } from '@angular/common';
 import { Plan } from '../../Models/Plan.model';
 import { HttpClient } from '@angular/common/http';
+import { HeadHeadComponent } from '../../Shared/head-head/head-head.component';
 
 @Component({
   selector: 'app-plans',
   standalone: true,
-  imports: [NgFor,NgClass],
+  imports: [NgFor,NgClass,HeadHeadComponent],
   templateUrl: './plans.component.html',
   styleUrl: './plans.component.css'
 })

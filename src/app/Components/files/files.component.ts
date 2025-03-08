@@ -4,11 +4,12 @@ import { NgFor } from '@angular/common';
 import { File } from '../../Models/File.model';
 import { FileCategory } from '../../Models/FileCategory.model';
 import { FilesService } from '../../Services/FilesService.service';
+import { HeadHeadComponent } from "../../Shared/head-head/head-head.component";
 
 @Component({
   selector: 'app-files',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, HeadHeadComponent],
   templateUrl: './files.component.html',
   styleUrl: './files.component.css'
 })

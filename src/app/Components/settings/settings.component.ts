@@ -13,10 +13,11 @@ import { BackupTime } from '../../Models/BackupTime.model';
 import { Server } from '../../Models/Server.model';
 import { BackupTimeService } from '../../Services/BackupTime.service';
 import { ServersService } from '../../Services/Server.service';
+import { HeadHeadComponent } from "../../Shared/head-head/head-head.component";
 @Component({
   selector: 'app-settings',
   standalone: true,
-  imports: [NgFor,NgIf,NgClass],
+  imports: [NgFor, NgIf, NgClass, HeadHeadComponent],
   templateUrl: './settings.component.html',
   styleUrl: './settings.component.css'
 })
