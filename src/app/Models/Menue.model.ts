@@ -1,4 +1,4 @@
-export class MenuItem {
+export class Menue {
   id: number;       // Unique identifier
   path?: string;     // Menu item name
   label?: string; // Category (e.g., Drinks, Food)
