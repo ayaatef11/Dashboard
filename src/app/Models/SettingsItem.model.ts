@@ -1,11 +1,11 @@
 export class SettingsItem {
-  id: number;
+  Id: number;
   name: string;
   icon: string;
   link: string;
 
   constructor(id: number, name: string = '', icon: string = '', link: string = '') {
-    this.id = id;
+    this.Id = id;
     this.name = name;
     this.icon = icon;
     this.link = link;

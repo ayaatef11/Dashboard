@@ -1,5 +1,5 @@
 export class Menue {
-  id: number;       // Unique identifier
+  Id: number;       // Unique identifier
   path?: string;     // Menu item name
   label?: string; // Category (e.g., Drinks, Food)
   icon?:string;
@@ -9,7 +9,7 @@ export class Menue {
     label?: string,
     icon?:string
   ) {
-    this.id = id;
+    this.Id = id;
     this.path=path;
     this.icon=icon;
     this.label=label;

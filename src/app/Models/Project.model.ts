@@ -1,4 +1,5 @@
 export class Project {
+  Id:number;
   name: string;
   finishDate: string;
   client: string;
@@ -10,6 +11,7 @@ export class Project {
   };
 
   constructor(
+    id:number,
     name: string,
     finishDate: string,
     client: string,
@@ -17,6 +19,7 @@ export class Project {
     team: string[],
     status: { text: string; class: string }
   ) {
+    this.Id=id;
     this.name = name;
     this.finishDate = finishDate;
     this.client = client;
