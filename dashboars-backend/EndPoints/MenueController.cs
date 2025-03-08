@@ -2,28 +2,23 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 [EnableCors("AllowAngularApp")]
 
     [Route("api/[controller]")]
     [ApiController]
-    public class MenuItemsController(AppDbContext context) : ControllerBase
+    public class MenueController(AppDbContext context) : ControllerBase
     {
         private readonly AppDbContext _context = context;
 
-    // GET: api/menuitems
     [HttpGet]
-        public async Task<ActionResult<IEnumerable<menueItem>>> GetMenuItems()
+        public async Task<ActionResult<IEnumerable<Menue>>> GetMenuItems()
         {
             return await _context.MenuItems.ToListAsync();
         }
 
-        // GET: api/menuitems/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<menueItem>> GetMenuItem(int id)
+        public async Task<ActionResult<Menue>> GetMenuItem(int id)
         {
             var menuItem = await _context.MenuItems.FindAsync(id);
 
@@ -35,9 +30,8 @@ using System.Threading.Tasks;
             return menuItem;
         }
 
-        // POST: api/menuitems
         [HttpPost]
-        public async Task<ActionResult<menueItem>> PostMenuItem(menueItem menuItem)
+        public async Task<ActionResult<Menue>> PostMenuItem(Menue menuItem)
         {
             _context.MenuItems.Add(menuItem);
             await _context.SaveChangesAsync();
@@ -45,9 +39,8 @@ using System.Threading.Tasks;
             return CreatedAtAction(nameof(GetMenuItem), new { id = menuItem.Id }, menuItem);
         }
 
-        // PUT: api/menuitems/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutMenuItem(int id, menueItem menuItem)
+        public async Task<IActionResult> PutMenuItem(int id, Menue menuItem)
         {
             if (id != menuItem.Id)
             {
@@ -60,7 +53,6 @@ using System.Threading.Tasks;
             return NoContent();
         }
 
-        // DELETE: api/menuitems/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMenuItem(int id)
         {
