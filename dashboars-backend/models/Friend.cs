@@ -10,7 +10,6 @@ public class Friend
     public DateTime Joined { get; set; }
     public bool IsVip { get; set; }
 
-    // Constructor
     public Friend(int id, string name, string role, string image, int friendsCount,
                   int projects, int articles, DateTime joined, bool isVip)
     {

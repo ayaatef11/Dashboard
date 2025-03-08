@@ -8,7 +8,6 @@ public class GeneralInfo
     public bool Disabled { get; set; }
     public bool ShowLink { get; set; }
 
-    // Constructor
     public GeneralInfo(string label, string type, string id, string placeholder, string value, bool disabled, bool showLink)
     {
         Label = label;
@@ -20,5 +19,4 @@ public class GeneralInfo
         ShowLink = showLink;
     }
 
-    // Default Constructor (optional)
 }
