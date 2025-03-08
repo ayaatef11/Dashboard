@@ -14,6 +14,9 @@ public class AppDbContext : DbContext
     public DbSet<SocialMedia>SocialMedias {get;set;}
     public DbSet<Widget>Widgets {get;set;}
     public DbSet<Project>Projects {get;set;}
+    public DbSet<Activity>Activitys {get;set;}
+    public DbSet<Friend>Friends {get;set;}
+    public DbSet<File>Files {get;set;}
 
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
