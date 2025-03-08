@@ -34,7 +34,7 @@
         <div>Age <span class="d-block c-grey fs-14 mt-10">Projects</span></div>
         <div>Earns <span class="d-block c-grey fs-14 mt-10">Earned</span></div>
       </div>
-      <a href="profile.html" class="visit d-block fs-14 bg-blue c-white w-fit btn-shape">Profile</a>
+<a [routerLink]="'/profile'" class="visit d-block fs-14 bg-blue c-white w-fit btn-shape">Profile</a>
     </div>
     <!-- End Welcome Widget -->
     <!-- Start Quick Draft Widget -->
@@ -201,7 +201,7 @@
     <div class="social-media p-20 bg-white rad-10 p-relative">
       <h2 class="mt-0 mb-25">Social Media Stats</h2>
 
-      <div *ngFor="let platform of socialPlatforms" class="box p-15 p-relative mb-10 between-flex" [ngClass]="platform.class">
+      <div *ngFor="let platform of socialPlatforms" class="box p-15 p-relative mb-10 between-flex" [ngClass]="platform.classs">
         <i class="fa-brands fa-2x c-white h-full center-flex" [ngClass]="platform.icon"></i>
         <span>{{ platform.followers }}</span>
         <a class="fs-13 c-white btn-shape" href="#">{{ platform.action }}</a>
