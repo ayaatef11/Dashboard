@@ -17,6 +17,10 @@ public static class ModelBuilderExtensions
         modelBuilder.SeedJsonData<SocialMedia>(dataPath, "SocialMedias.json");
         modelBuilder.SeedJsonData<Widget>(dataPath, "Widgets.json");
         modelBuilder.SeedJsonData<Project>(dataPath, "Projects.json");
+        modelBuilder.SeedJsonData<Activity>(dataPath, "activities.json");
+        modelBuilder.SeedJsonData<Friend>(dataPath, "Friends.json");
+        modelBuilder.SeedJsonData<Files>(dataPath, "Files.json");
+
     }
 
     private static void SeedJsonData<T>(this ModelBuilder modelBuilder, string directory, string fileName) where T : class
