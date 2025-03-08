@@ -8,7 +8,7 @@ import { SidebarComponent } from './Components/sidebar/sidebar.component';
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [RouterOutlet]
+  imports: [SidebarComponent,RouterOutlet]
 })
 export class AppComponent {
   title = 'Dashboard';
